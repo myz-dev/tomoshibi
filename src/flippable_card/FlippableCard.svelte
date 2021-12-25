@@ -1,75 +1,39 @@
-<script>
-	import { staff } from './staffData.js';
-	
-	let selected;
-	$:console.log(selected)
-	
-	let cardBackShowing = false;
-	
-	const toggleBackFront = (e) => {
-		// if same card clicked twice to toggle front and back
-		if (selected === Number(e.target.dataset.cardId)) {
-			selected = null;
-			cardBackShowing = !cardBackShowing;
-		} else {
-			cardBackShowing = !cardBackShowing;
-			selected = Number(e.target.dataset.cardId)
-		}
-	}
+<script lang="ts">
+	import { Card } from "./../Cards";
+	export let card: Card = new Card(2, "あ", "./../../static/a_ame01.png", "美味しそうなあめ", "あめ");
 </script>
 
-
-<header>
-	<h1>About Us</h1>
-</header>
-
-<div class="row">
-	{#each staff as {name, position, descr, email, img}, i}
-		<div class="flip-box">
-			<div class="flip-box-inner" class:show-back={selected === i}>
-				<div class="flip-box-front card">
-					<img src={img} alt={name}>
+<div class="mt-4 flex flex-col space-y-5">
+	<div>
+		<div class="flip-card w-56 h-56">
+			<div class="flip-card-inner">
+				<!-- Card Front -->
+				<div
+					class="flip-card-front bg-sky-300 w-56 h-56 flex items-center justify-center rounded-xl shadow-md"
+				>
+					<p class="antialiased text-6xl font-semibold text-red-400">{card.gliph} </p>
 				</div>
-
-				<div class="flip-box-back container">
-					<h2>{name}</h2>
-					<p class="title">{position}</p>
-					<p>{descr}</p>
-					<p>{email}</p>
-					<p><button class="button">Contact</button></p>
+				<!-- Card Back -->
+				<div class="flip-card-back bg-sky-50 rounded-xl flex items-center justify-center">
+					<figure>
+						<img class="h-36 w-36" src={card.src} alt={card.alt} />
+						<figcaption class="text-3xl">{card.displayed_name}</figcaption>
+					</figure>
 				</div>
 			</div>
-			<footer on:click={toggleBackFront} data-card-id={i}>{position}</footer>
 		</div>
-	{/each}
-</div>	
-
-
-
+	</div>
+</div>
 
 <style>
-	h1 {
-		margin: 0 0 5px;
-	}
-	
-	.row {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		margin-bottom: 10%;
-	}
-	/* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
-	.flip-box {
+	/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+	.flip-card {
 		background-color: transparent;
-		width: 200px;
-		height: 310px;
-		margin: 0 20px 40px;
-		border: 1px solid #f1f1f1;
 		perspective: 1000px; /* Remove this if you don't want the 3D effect */
 	}
 
 	/* This container is needed to position the front and back side */
-	.flip-box-inner {
+	.flip-card-inner {
 		position: relative;
 		width: 100%;
 		height: 100%;
@@ -79,16 +43,13 @@
 	}
 
 	/* Do an horizontal flip when you move the mouse over the flip box container */
-/* 	.flip-box:hover .flip-box-inner {
-		transform: rotateY(180deg);
-	} */
-	
-	.show-back {
+	.flip-card:hover .flip-card-inner {
 		transform: rotateY(180deg);
 	}
 
 	/* Position the front and back side */
-	.flip-box-front, .flip-box-back {
+	.flip-card-front,
+	.flip-card-back {
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -96,107 +57,38 @@
 		backface-visibility: hidden;
 	}
 
-	/* Style the front side */
-	.flip-box-front {
-		background-color: #000;
+	/* Style the front side (fallback if image is missing) */
+	.flip-card-front {
+		color: black;
 	}
 
 	/* Style the back side */
-	.flip-box-back {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		background-color: black;
-		color: white;
-		width: 196px;
-		height: 300px;
-		transform: rotateY(180deg) translateX(6px);
+	.flip-card-back {
+		transform: rotateY(180deg);
 	}
 
-
-	img {
-		max-height: 100%;
-
-	}	
-
-	footer {
-		width: 200px;
-		font-weight: 800;
-		padding: 5px 2px;
-		text-align: center;
-		border: 1px solid darkgray;
-		border-top: 1px solid black;
-/* 		box-shadow: 0 0 2px black; */
-		cursor: pointer;
-		transition: .3s all;
-	}
-	
-	footer:hover {
-		color: #fff;
-		background-color: #000;
-		border: 1px solid black;
-	}
-	
-	footer:active {
-		color: #000;
-		background-color: #888
+	/* noto-sans-jp-700 - latin_japanese */
+	@font-face {
+		font-family: 'Noto Sans JP';
+		font-style: normal;
+		font-weight: 700;
+		src: url('./../../static/fonts/noto-sans-jp-v36-latin_japanese-700.eot'); /* IE9 Compat Modes */
+		src: local(''),
+			url('./../../static/fonts/noto-sans-jp-v36-latin_japanese-700.eot?#iefix')
+				format('embedded-opentype'),
+			/* IE6-IE8 */ url('./../../static/fonts/noto-sans-jp-v36-latin_japanese-700.woff2')
+				format('woff2'),
+			/* Super Modern Browsers */
+				url('./../../static/fonts/noto-sans-jp-v36-latin_japanese-700.woff') format('woff'),
+			/* Modern Browsers */ url('./../../static/fonts/noto-sans-jp-v36-latin_japanese-700.ttf')
+				format('truetype'),
+			/* Safari, Android, iOS */
+				url('./../../static/fonts/noto-sans-jp-v36-latin_japanese-700.svg#NotoSansJP') format('svg'); /* Legacy iOS */
 	}
 
-		/* Three columns side by side */
-	/* .column {
-		float: left;
-		width: 33.3%;
-		margin-bottom: 16px;
-		padding: 0 8px;
-	} */
-
-	/* Display the columns below each other instead of side by side on small screens */
-	/* @media screen and (max-width: 650px) {
-		.column {
-			width: 100%;
-			display: block;
-		}
-	}
-	 */
-	/* Add some shadows to create a card effect */
-	.card {
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	}
-
-	/* Some left and right padding inside the container */
-	.container {
-		padding: 5px;
-	}
-
-	/* Clear floats */
-/* 	.container::after, .row::after {
-		content: "";
-		clear: both;
-		display: table;
-	} */
-	
-	h2 {
-		margin: 5px 0 0 0;
-	}	
-
-	.title {
-		color: grey;
-	}
-
-	.button {
-		border: none;
-		outline: 0;
-		display: inline-block;
-		padding: 8px;
-		font-weight: bold;
-		background-color: #FFF;
-		text-align: center;
-		cursor: pointer;
-		width: 80%;
-	}
-
-	.button:hover {
-		background-color: goldenrod;
+	/* noto-sans-jp-900 - latin_japanese */
+	figcaption, p {
+		font-family: Noto Sans JP;
 	}
 
 </style>
