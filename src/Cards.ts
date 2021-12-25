@@ -12,6 +12,7 @@ export class Card {
 }
 
 export const Cards: Card[] = [
+    new Card(10, "か", "/ka_kabocha.png", "かぼちゃ", "かぼちゃ"),
     new Card(1, "あ", "/a_ari.png", "微笑んでいるアリ", "あり"),
     new Card(2, "あ", "/a_ame01.png", "美味しそうなあめ", "あめ"),
     new Card(3, "あ", "/a_ame02.png", "雲から降っている雨", "あめ"),
@@ -21,7 +22,6 @@ export const Cards: Card[] = [
     // new Card(7, "う", "/a_ari.png", "うし", "うし"),
     // new Card(8, "え", "/a_ari.png", "えほん", "えほん"),
     // new Card(9, "お", "/a_ari.png", "美味しそうなおむらいす", "おむらいす"),
-    new Card(10, "か", "/ka_kabocha.png", "かぼちゃ", "かぼちゃ"),
     // new Card(11, "き", "/a_ari.png", "きりん", "きりん"),
     // new Card(12, "く", "/a_ari.png", "くるま", "くるま"),
     // new Card(13, "け", "/a_ari.png", "けんだま", "けんだま"),
