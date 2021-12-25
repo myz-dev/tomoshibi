@@ -11,7 +11,7 @@
 				<div
 					class="flip-card-front bg-sky-300 w-56 h-56 flex items-center justify-center rounded-xl shadow-md"
 				>
-					<p class="antialiased text-6xl font-semibold text-red-400">{card.gliph} </p>
+					<p class="antialiased text-6xl font-semibold text-red-400">{card.glyph} </p>
 				</div>
 				<!-- Card Back -->
 				<div class="flip-card-back bg-sky-50 rounded-xl flex items-center justify-center">
@@ -72,18 +72,18 @@
 		font-family: 'Noto Sans JP';
 		font-style: normal;
 		font-weight: 700;
-		src: url('./../../static/fonts/noto-sans-jp-v36-latin_japanese-700.eot'); /* IE9 Compat Modes */
+		src: url('/fonts/noto-sans-jp-v36-latin_japanese-700.eot'); /* IE9 Compat Modes */
 		src: local(''),
-			url('./../../static/fonts/noto-sans-jp-v36-latin_japanese-700.eot?#iefix')
+			url('/fonts/noto-sans-jp-v36-latin_japanese-700.eot?#iefix')
 				format('embedded-opentype'),
-			/* IE6-IE8 */ url('./../../static/fonts/noto-sans-jp-v36-latin_japanese-700.woff2')
+			/* IE6-IE8 */ url('/fonts/noto-sans-jp-v36-latin_japanese-700.woff2')
 				format('woff2'),
 			/* Super Modern Browsers */
-				url('./../../static/fonts/noto-sans-jp-v36-latin_japanese-700.woff') format('woff'),
-			/* Modern Browsers */ url('./../../static/fonts/noto-sans-jp-v36-latin_japanese-700.ttf')
+				url('/fonts/noto-sans-jp-v36-latin_japanese-700.woff') format('woff'),
+			/* Modern Browsers */ url('/fonts/noto-sans-jp-v36-latin_japanese-700.ttf')
 				format('truetype'),
 			/* Safari, Android, iOS */
-				url('./../../static/fonts/noto-sans-jp-v36-latin_japanese-700.svg#NotoSansJP') format('svg'); /* Legacy iOS */
+				url('/fonts/noto-sans-jp-v36-latin_japanese-700.svg#NotoSansJP') format('svg'); /* Legacy iOS */
 	}
 
 	/* noto-sans-jp-900 - latin_japanese */
