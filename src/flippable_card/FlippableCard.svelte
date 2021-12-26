@@ -1,4 +1,6 @@
 <script lang="ts">
+import { onMount } from 'svelte';
+
 	import { Card } from './../Cards';
 	export let card: Card = new Card(
 		2,
@@ -7,9 +9,19 @@
 		'美味しそうなあめ',
 		'あめ'
 	);
+
+	let paused = false;
+	let volume = 0.3;
 </script>
 
-<div class="mt-4 flex flex-col space-y-5">
+{#if paused}
+	<div class="bg-blue-600">
+		paused is on
+	</div>
+{/if}
+<!-- <button on:click="{() => paused = !paused}"> PLAY! </button>
+<input type="scale" bind:value="{volume}"> -->
+<div on:mouseenter="{() => paused = false}" on:mouseleave="{() => paused = true}" class="mt-4 flex flex-col space-y-5">
 	<div>
 		<div class="flip-card w-56 h-56">
 			<div class="flip-card-inner">
@@ -25,6 +37,9 @@
 						<img class="h-36 w-36" src={card.src} alt={card.alt} />
 						<figcaption class="text-3xl">{card.displayed_name}</figcaption>
 					</figure>
+					<audio preload="auto" bind:paused bind:volume>
+						<source src="test_sound.mp3" type="audio/mp3">
+					</audio>
 				</div>
 			</div>
 		</div>

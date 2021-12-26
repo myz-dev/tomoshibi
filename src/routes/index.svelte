@@ -3,7 +3,7 @@
     import { Cards } from './../Cards';
 </script>
 
-<div class="ml-4 grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-3 lg:grid-cols-5">
+<div class="mt-3 grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-3 xl:grid-cols-5 justify-items-center">
     {#each Cards as card}
 	    <FlippableCard card={card}/>
     {/each}
