@@ -1,6 +1,12 @@
 <script lang="ts">
-	import { Card } from "./../Cards";
-	export let card: Card = new Card(2, "あ", "./../../static/a_ame01.png", "美味しそうなあめ", "あめ");
+	import { Card } from './../Cards';
+	export let card: Card = new Card(
+		2,
+		'あ',
+		'./../../static/a_ame01.png',
+		'美味しそうなあめ',
+		'あめ'
+	);
 </script>
 
 <div class="mt-4 flex flex-col space-y-5">
@@ -11,7 +17,7 @@
 				<div
 					class="flip-card-front bg-sky-300 w-56 h-56 flex items-center justify-center rounded-xl shadow-md"
 				>
-					<p class="antialiased text-6xl font-semibold text-red-400">{card.glyph} </p>
+					<p class="antialiased text-6xl font-semibold text-red-400">{card.glyph}</p>
 				</div>
 				<!-- Card Back -->
 				<div class="flip-card-back bg-sky-50 rounded-xl flex items-center justify-center">
@@ -67,28 +73,11 @@
 		transform: rotateY(180deg);
 	}
 
-	/* noto-sans-jp-700 - latin_japanese */
-	@font-face {
-		font-family: 'Noto Sans JP';
-		font-style: normal;
-		font-weight: 700;
-		src: url('/fonts/noto-sans-jp-v36-latin_japanese-700.eot'); /* IE9 Compat Modes */
-		src: local(''),
-			url('/fonts/noto-sans-jp-v36-latin_japanese-700.eot?#iefix')
-				format('embedded-opentype'),
-			/* IE6-IE8 */ url('/fonts/noto-sans-jp-v36-latin_japanese-700.woff2')
-				format('woff2'),
-			/* Super Modern Browsers */
-				url('/fonts/noto-sans-jp-v36-latin_japanese-700.woff') format('woff'),
-			/* Modern Browsers */ url('/fonts/noto-sans-jp-v36-latin_japanese-700.ttf')
-				format('truetype'),
-			/* Safari, Android, iOS */
-				url('/fonts/noto-sans-jp-v36-latin_japanese-700.svg#NotoSansJP') format('svg'); /* Legacy iOS */
-	}
-
 	/* noto-sans-jp-900 - latin_japanese */
-	figcaption, p {
-		font-family: Noto Sans JP;
+	figcaption,
+	p {
+		/* font-family: 'Noto Sans JP', sans-serif; */
+		font-family: 'Montserrat', 'Mplus 1p', 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック',
+			'游ゴシック体', YuGothic, 'Yu Gothic', 'ＭＳ ゴシック', 'MS Gothic', sans-serif;
 	}
-
 </style>
