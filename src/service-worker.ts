@@ -1,3 +1,4 @@
+// thanks to log rocket for this
 import { build, files, timestamp } from '$service-worker';
 const worker = (self as unknown) as any;
 const FILES = `cache${timestamp}`;
