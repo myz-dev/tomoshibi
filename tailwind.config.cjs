@@ -15,11 +15,11 @@ const config = {
 				},
 				pastelpink: {
 					800: '#FFBCBC'
-				},pastelred: {
-					800: '#F38BA0'
 				},
+				pastelred: {
+					800: '#F38BA0'
+				}
 			}
-
 		}
 	},
 

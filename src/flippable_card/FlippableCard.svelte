@@ -7,22 +7,21 @@
 		'あ',
 		'./../../static/a_ame01.png',
 		'美味しそうなあめ',
-		'あめ'
+		'あめ',
+		'546716',
+		'aa551b'
 	);
 
 	let paused = false;
 	let volume = 0.3;
 	let currentTime = 0;
 	let muted = false;
-	function play_soundfile(): void {
-		paused = false;
-	}
+
 	onMount(() => {
 		paused = true;
 		muted = false;
+		console.log(card);
 	});
-
-
 </script>
 
 <div class="mt-4 flex flex-col space-y-5">
@@ -31,14 +30,20 @@
 			<div class="flip-card-inner">
 				<!-- Card Front -->
 				<div
-					class="flip-card-front bg-sky-300 w-56 h-56 flex items-center justify-center rounded-xl shadow-md"
+					class="flip-card-front  w-56 h-56 flex items-center justify-center rounded-xl shadow-md"
+					style={card.color_front_bg}
 				>
-					<p class="antialiased text-6xl font-semibold text-red-400">{card.glyph}</p>
+					<p class="antialiased text-6xl font-semibold" style={card.color_front_text}>
+						{card.glyph}
+					</p>
 				</div>
 				<!-- Card Back -->
 				<div class="flip-card-back bg-sky-50 rounded-xl flex flex-col items-center justify-center">
 					<button
-						on:click={() => {currentTime = 0; paused = false}}
+						on:click={() => {
+							currentTime = 0;
+							paused = false;
+						}}
 						class="ml-40 mt-3 h-6 w-6 text-slate-800 hover:shadow-md hover:cursor-pointer hover:text-gray-600"
 					>
 						<FaVolumeUp />

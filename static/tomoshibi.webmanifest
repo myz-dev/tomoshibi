@@ -1,0 +1,26 @@
+{
+	"name": "Tomoshibi Kids Kana Learning App",
+	"short_name": "Tomoshibi",
+	"description": "Progressive Web App that can be used to learn how to read and write Japanese Kana characters",
+	"icons": [
+		{
+			"src": "Icon-App-40x40@1x.png",
+			"sizes": "40x40",
+			"type": "image/png"
+		},
+		{
+			"src": "Icon-App-40x40@2x.png",
+			"sizes": "80x80",
+			"type": "image/png"
+		},
+		{
+			"src": "iTunesArtwork@1x.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"start_url": "/",
+	"display": "standalone",
+	"theme_color": "#7DD3FC",
+	"background_color": "#1E293B"
+}
